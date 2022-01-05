@@ -1,19 +1,30 @@
-import React from "react";
+import React, {Component} from "react";
+import Search from "../search/Search";
 
-const movieDB = require('moviedb')('4f6180974989b4115cfd59034eb82ace')
+/*const movieDB = require('moviedb')('4f6180974989b4115cfd59034eb82ace')
 
 let film = movieDB.searchMovie({query: 'Alien'}, (err, res) => {
     console.log(res);
-})
-console.log(film)
-const App = () => {
-    return(
-        <div>
-            <span>
-                <h1>${film}</h1>
-            </span>
-        </div>
-    )
+})*/
+//console.log(film)
+
+export default class App extends Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            db: 1//movieDB
+        }
+    }
+
+
+
+    render() {
+        return(
+            <Search db={this.db}/>
+        )
+    }
+
+
 }
 
-export default App
+
