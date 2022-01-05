@@ -1,10 +1,17 @@
 import React from "react";
-import NavBar from "../header/NavBar";
 
+const movieDB = require('moviedb')('4f6180974989b4115cfd59034eb82ace')
+
+let film = movieDB.searchMovie({query: 'Alien'}, (err, res) => {
+    console.log(res);
+})
+console.log(film)
 const App = () => {
-    return (
-        <div className='main'>
-            <NavBar />
+    return(
+        <div>
+            <span>
+                <h1>${film}</h1>
+            </span>
         </div>
     )
 }
