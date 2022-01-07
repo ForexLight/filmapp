@@ -1,0 +1,8 @@
+.container {
+    display: flex;
+}
+.a_side {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+}
