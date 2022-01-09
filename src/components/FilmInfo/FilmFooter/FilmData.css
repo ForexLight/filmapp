@@ -1,0 +1,9 @@
+.film-data{
+    display: flex;
+    justify-content: space-between;
+
+}
+.film-data-extra{
+    display: flex;
+    flex-direction: column;
+}

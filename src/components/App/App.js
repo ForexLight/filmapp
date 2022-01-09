@@ -3,8 +3,17 @@ import React, {Component} from "react";
 import Search from "../Search/Search";
 import FoundedFilms from "../Search/FoundedFilms";
 import FilmInfo from "../FilmInfo/FilmInfo";
+import InitData from "../data/InitData";
 
 import './app.css'
+
+
+
+
+
+
+
+
 
 
 export default class App extends Component{
@@ -32,7 +41,7 @@ export default class App extends Component{
                     }
                 ],
             search: '',
-            currFilm: ''
+            currFilm: {}
         }
         this.onSearch = this.onSearch.bind(this)
         this.clickOnCard = this.clickOnCard.bind(this)
@@ -45,16 +54,20 @@ export default class App extends Component{
         return db.filter(i => i.name.indexOf(search) > -1)
 
     }
-    onSearch(search){
+     onSearch(search){
         this.setState({search})
     }
+
+
     clickOnCard(currFilm){
-        this.setState({currFilm})
+        console.log(currFilm)
+        this.setState({
+            currFilm: {...currFilm}})
     }
 
     render() {
         let {db, search, currFilm} = this.state
-        const foundFilms = this.findFilms(db, search)
+
         const film = db.find(i => i.id === currFilm)
 
         return(
@@ -64,14 +77,17 @@ export default class App extends Component{
                         onSearch={this.onSearch}
                     />
                     <FoundedFilms
-                        films={foundFilms}
+                        search={search}
                         clickOnCard={this.clickOnCard}
                     />
                 </div>
-            <FilmInfo
-                currFilm={film}
-                films={db}
-            />
+                <div className='film-info'>
+                    <FilmInfo
+                        currFilm={currFilm}
+                        films={db}
+                    />
+                </div>
+
             </div>
         )
     }
