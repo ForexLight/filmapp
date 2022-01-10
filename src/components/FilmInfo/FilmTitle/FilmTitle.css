@@ -2,4 +2,47 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 400px;
+    background-size: 100% 600px;
+}
+.film-title {
+    background-color: rgba(0, 0, 0, 0.91);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 200px;
+    min-height: 100px;
+    align-self: end;
+    margin: 15px;
+    padding: 20px;
+}
+.film-title h2{
+    font-size: 30px;
+    padding-bottom: 10px;
+}
+.special-data {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: end;
+    margin: 15px;
+    background-color: rgba(0, 0, 0, 0.91);
+    padding: 20px;
+}
+.adult {
+    text-align: center;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+.bg-green {
+    background-color: green;
 }

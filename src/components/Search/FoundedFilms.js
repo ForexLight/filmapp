@@ -2,17 +2,17 @@ import React, {Component, useEffect, useState} from "react";
 import FoundedFilm from "./FoundedFilm/FoundedFilm";
 import InitData from "../data/InitData";
 
+
 import './FoundedFilms.css'
 
-const FoundedFilms = ({search, clickOnCard}) => {
+const FoundedFilms = ({search, clickOnCard, currFilm}) => {
 
     const [films , setFilms] = useState([])
 
     async function fetchData(search){
         search = search || 'Terminator'
         let data = new InitData()
-        let res = data.searchByQuery(`${search}`).then(res => setFilms(res.results))
-        console.log(res)
+        data.searchByQuery(`${search}`).then(res => setFilms(res.results))
     }
 
     useEffect(() => {
@@ -21,19 +21,21 @@ const FoundedFilms = ({search, clickOnCard}) => {
 
 
 
-    const filmItems = films.map(i => {
-
+    const filmItems = films.sort((a,b) => b.vote_average - a.vote_average).map(i => {
 
         return(
             <li key={i.id}>
                 <FoundedFilm
                     id={i.id}
+                    currFilm={currFilm}
                     {...i}
                     clickOnCard={() => clickOnCard(i)}
                 />
             </li>
         )
     })
+
+
     return (
         <div className='search-result'>
             <ul>

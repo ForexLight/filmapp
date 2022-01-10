@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import './Search.css'
 
 
 export default class Search extends Component{
@@ -21,8 +22,8 @@ export default class Search extends Component{
 
         return(
             <div className='search'>
-                <input type="text"
-                       placeholder='Find this'
+                <input type="search"
+                       placeholder="Search..."
                        onChange={this.searchFilm}
                 />
             </div>

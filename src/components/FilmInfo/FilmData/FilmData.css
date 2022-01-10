@@ -1,0 +1,26 @@
+.film-data{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.film-revue {
+    padding: 10px;
+    max-width: 500px;
+}
+.film-data-extra{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.film-poster {
+    height: 510px;
+
+}
+.film-prod {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+.film-prod-data {
+    padding: 20px;
+}

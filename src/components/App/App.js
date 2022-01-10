@@ -4,6 +4,7 @@ import Search from "../Search/Search";
 import FoundedFilms from "../Search/FoundedFilms";
 import FilmInfo from "../FilmInfo/FilmInfo";
 import InitData from "../data/InitData";
+import SimpleBarReact from 'simplebar-react';
 
 import './app.css'
 
@@ -47,22 +48,16 @@ export default class App extends Component{
         this.clickOnCard = this.clickOnCard.bind(this)
     }
 
-    findFilms(db, search) {
-        if(search.length === 0){
-            return db
-        }
-        return db.filter(i => i.name.indexOf(search) > -1)
 
-    }
      onSearch(search){
         this.setState({search})
     }
 
 
     clickOnCard(currFilm){
-        console.log(currFilm)
         this.setState({
-            currFilm: {...currFilm}})
+            currFilm: {...currFilm}
+        })
     }
 
     render() {
@@ -78,6 +73,7 @@ export default class App extends Component{
                     />
                     <FoundedFilms
                         search={search}
+                        currFilm={currFilm}
                         clickOnCard={this.clickOnCard}
                     />
                 </div>

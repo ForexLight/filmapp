@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from "react";
 import InitData from "../data/InitData";
 import FilmTitle from "./FilmTitle/FilmTitle";
-import FilmData from "./FilmFooter/FilmData";
+import FilmData from "./FilmData/FilmData";
+
+import './FilmInfo.css'
 
 
 function FilmInfo({currFilm}){
@@ -19,35 +21,31 @@ function FilmInfo({currFilm}){
         fetchData(id)
     }, [id])
 
+
+
+    const {adult, title, genres, vote_average, overview, homepage, budget, release_date, backdrop_path, original_language, production_companies, production_countries, poster_path} = film
     console.log(film)
-
-    const {adult, title, genres, vote_average, overview, homepage, budget, release_date} = film
-    const isAdult = () => {
-        if(adult){
-            return(
-            <div><span className='bg-red'>18</span></div>
-            )
-        }
-        return (
-            <div><span className='bg-green'>18</span></div>
-
-        )
-    }
     return(
-        <div>
-            <FilmTitle
-                title={title}
-                adult={adult}
-                genres={genres}
-                vote_average={vote_average}
-            />
-            <FilmData
-                overview={overview}
-                homepage={homepage}
-                budget={budget}
-                release_date={release_date}
-            />
-        </div>
+           <div className='film-info__container'>
+               <FilmTitle
+                   title={title}
+                   adult={adult}
+                   genres={genres}
+                   vote_average={vote_average}
+                   backdrop_path={backdrop_path}
+               />
+               <FilmData
+                   overview={overview}
+                   homepage={homepage}
+                   budget={budget}
+                   release_date={release_date}
+                   original_language={original_language}
+                   production_companies={production_companies}
+                   production_countries={production_countries}
+                   poster_path={poster_path}
+               />
+           </div>
+
     )
 }
 

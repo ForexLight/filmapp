@@ -10,6 +10,8 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
+    "simplebar": "^5.3.6",
+    "simplebar-react": "^2.3.6",
     "tmdbv3": "^0.1.2",
     "web-vitals": "^2.1.2"
   },

@@ -4,18 +4,20 @@ import './FilmTitle.css'
 
 export default function FilmTitle(props) {
 
-    let {adult, title, genres = [], vote_average} = props
+    let {adult, title, genres = [], vote_average , backdrop_path} = props
+
+    console.log(backdrop_path)
 
 
 
-    genres = genres.map(i => (<span key={i.id}>{i.name}</span>))
+    genres = genres.map(i => (<span key={i.id}> {i.name} </span>))
     const isAdult = () => {
         if(adult) {
             return (
-                <div className='bg-red adult'><span> 18+</span></div>
+                <div className='bg-red adult'><span> </span></div>
                 )
         }
-        return <div className='bg-green'><span> 18-</span></div>
+        return <div className='bg-green adult'><span>under 18</span></div>
 
     }
 
@@ -23,16 +25,16 @@ export default function FilmTitle(props) {
 
 
     return(
-        <div className='film-header'>
+        <div className='film-header' style={{backgroundImage: `url(https://image.tmdb.org/t/p/original/${backdrop_path})`}}>
             <div className="film-title">
-                <h1>{title}</h1>
+                <h2>{title}</h2>
                 <div className='genres'>
                     {genres}
                 </div>
             </div>
-            <div className="special data">
-                <div>{adult}</div>
-                <span className='rating'> {vote_average}</span>
+            <div className="special-data">
+                {adult}
+                <span className='rating'> Film db rating {vote_average}</span>
             </div>
         </div>
     )
