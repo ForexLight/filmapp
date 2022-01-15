@@ -1,14 +1,30 @@
 import React, {Component} from "react";
-
-import Search from "../Search/Search";
-import FoundedFilms from "../Search/FoundedFilms";
-import FilmInfo from "../FilmInfo/FilmInfo";
-import InitData from "../data/InitData";
-import SimpleBarReact from 'simplebar-react';
-
-import './app.css'
+import {BrowserRouter as Router, Routes, Route  } from "react-router-dom";
+import Header from "../Header/Header";
+import Home from "../Home/Home";
+import Main from "../Main/Main";
+import FilmData from "../FilmData/FilmData";
+import Footer from "../Footer/Footer";
 
 
+function App(props) {
+
+    return(
+        <>
+           <Router>
+               <Header />
+               <Routes>
+                   <Route exact path="/" element={<Main />} />
+                   <Route path="/film" element={<Home />} />
+                   <Route element={<FilmData />}>
+                       <Route exact path="/film/:id"/>
+                   </Route>
+               </Routes>
+               <Footer />
+           </Router>
+        </>
+    )
+}
 
 
 
@@ -17,7 +33,11 @@ import './app.css'
 
 
 
-export default class App extends Component{
+
+
+
+/*
+class App extends Component{
 
     constructor(props) {
         super(props);
@@ -80,6 +100,9 @@ export default class App extends Component{
     }
 
 
-}
+}*/
+
+
+export default App;
 
 

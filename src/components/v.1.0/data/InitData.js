@@ -1,6 +1,7 @@
 
 // https://api.themoviedb.org/3/movie?api_key=4f6180974989b4115cfd59034eb82ace&query=Matrix
 // https://api.themoviedb.org/3/search/movie?api_key=4f6180974989b4115cfd59034eb82ace&query=Spider+Man
+// https://api.themoviedb.org/3/collection/10/images?api_key=4f6180974989b4115cfd59034eb82ace&language=en-US
 
 export default class InitData {
     constructor() {
