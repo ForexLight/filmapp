@@ -32,7 +32,7 @@ export default function Main(){
     return(
         <MainStyled>
             <Slider popularFilms={popularFilms}/>
-            <h2 style={{fontSize: '34px', color: "black"}}>Upcoming movies</h2>
+            <h2 style={{fontSize: '34px', color: "black"}}>Top Rated</h2>
             <SmallSlider list={topRated}/>
             <h2 style={{fontSize: '34px', color: "black"}}>Upcoming movies</h2>
             <SmallSlider list={upcomingList}/>

@@ -11,7 +11,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 const SwiperWraper = styled.div`
-width: 1600px;
+width: 90%;
   h2 {
     padding-top: 20px;
     display: flex;
@@ -25,7 +25,6 @@ width: 1600px;
 export default function SmallSlider({list}){
 
     let res = list.map(i => {
-
         return (
             <SwiperSlide key={i.id} style={{paddingTop: '40px',paddingLeft: '50px', paddingRight: '50px'}}>
                 <Link to={{
@@ -33,7 +32,7 @@ export default function SmallSlider({list}){
                     state: { films: i }
                 }}>
                 <div style={{ display: "flex", flexDirection: "column", paddingBottom: '10px'}}>
-                    <img style={{width: '400px', height: '500px'}} src={`https://image.tmdb.org/t/p/original/${i.poster_path}`} alt="" />
+                    <img style={{width: '300px', height: '400px'}} src={`https://image.tmdb.org/t/p/original/${i.poster_path}`} alt="" />
                     <span>{i.title}</span>
                 </div>
                 </Link>

@@ -9,11 +9,11 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import { Outlet, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 const SwiperWraper = styled.div`
-  width: 90%;
+  width: 95%;
   overflow: hidden;
 
   .slide {
@@ -45,7 +45,7 @@ const SwiperWraper = styled.div`
 export default function Slider({ popularFilms}) {
 
     const sliderItem = popularFilms.slice(0, 5)
-    console.log(sliderItem)
+
     let slides = sliderItem.map(i => {
         console.log(i)
         return (
