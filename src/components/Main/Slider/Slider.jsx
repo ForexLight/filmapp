@@ -56,7 +56,7 @@ export default function Slider({ popularFilms}) {
                     state: { films: i }
                 }}>
 
-                <div className='slide' style={{color: "white",background: 'linear-gradient(rgba(0, 0, 0, 0.25), rgb(12, 12, 14))', height: '700px', width: '100%', display: "flex", justifyContent: "space-between", alignItems: "flex-end", }}>
+                <div className='slide' style={{color: "white",background: 'linear-gradient(rgba(0, 0, 0, 0.25), rgb(12, 12, 14))', height: '720px', width: '100%', display: "flex", justifyContent: "space-between", alignItems: "flex-end", }}>
                     <div className='slide-title' style={{display:'flex', maxWidth:'800px'}}>
                         <img className='film-poster' src={"https://image.tmdb.org/t/p/original/" + i.poster_path} alt="" />
                         <h2 className='sliderTitle' style={{ alignSelf: "flex-end", padding: '20px'}}>{i.title}</h2>
