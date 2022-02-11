@@ -1,10 +1,13 @@
 import React from "react";
+import Layout from "../shared/layouts/Layout";
 
 
 function Home(props) {
 
     return(
-        <span>TI PIDOR</span>
+        <Layout>
+            123
+        </Layout>
     )
 }
 

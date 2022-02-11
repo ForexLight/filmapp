@@ -2,81 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const PosterWrapper = styled.div`
-  display: flex;
-  align-self: center;
-  justify-content: flex-start;
-  
-  width: 90%;
-  padding-top: 20px;
-  background-color: #ffffff;
-
-  .poster {
-    margin-right: 50px;
-    margin-left: 10%;
-    width: 500px;
-    height: 650px;
-  }
-
-  .description {
-    padding-top: 10px;
-    display: flex;
-    flex-direction: column;
-    width: 45%;
-    text-align: left;
-    padding-right: 40px;
-
-    .poster-title {
-      font-size: 42px;
-      font-weight: 900;
-    }
-
-    .description-item {
-      padding-top: 20px;
-
-      h3 {
-        padding-bottom: 10px;
-        font-size: 22px;
-        font-weight: 600;
-      }
-    }
-
-    .subtitle {
-      padding-top: 20px;
-
-      p {
-        padding-top: 20px;
-      }
-
-      .genres {
-        padding-left: 15px;
-      }
-
-      ul li {
-        position: relative;
-        display: inline;
-      }
-
-      ul li:nth-child(1):after {
-        content: '';
-        margin-left: 5px;
-        position: absolute;
-        top: 42%;
-        left: 100%;
-        display: inline-block;
-        width: 5px;
-        height: 5px;
-        border-radius: 50%;
-        background-color: rgba(0, 0, 0, 0.68);
-      }
-    }
-    .prod-companies {
-      display: flex;
-      img{
-        padding: 10px 20px;
-      }
-    }
-  }
-
+       
 `
 
 
@@ -95,11 +21,6 @@ export default function FilmPoster({data, cast=[], crew=[]}){
     let companies = production_companies.map(i =>
         <img key={i.id} style={{width: '200px', height:'50px'}} src={"https://image.tmdb.org/t/p/original/"+i.logo_path} alt=""/>
     )
-
-
-
-
-
     return(
         <PosterWrapper>
             <img src={"https://image.tmdb.org/t/p/original/"+data.poster_path} alt="" className='poster'/>

@@ -1,17 +1,13 @@
 import React, {useEffect, useState} from "react";
 import styled from "styled-components";
-import Slider from "./Slider/Slider";
-import SmallSlider from "./SmallSlider/SmallSlider";
+import SmallSlider from "../shared/SmallSlider";
+import Layout from "../shared/layouts/Layout";
+import MainSlider from "../shared/MainSlider";
+import Container from "../shared/layouts/Container";
 
 
 const MainStyled = styled.main`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 `
-
-
 
 export default function Main(){
     const [recFilm, setRecFilm ] = useState([])
@@ -30,24 +26,23 @@ export default function Main(){
     },[])
 
     return(
-        <MainStyled>
-            <Slider popularFilms={popularFilms}/>
-            <h2 style={{fontSize: '34px', color: "black"}}>Top Rated</h2>
-            <SmallSlider list={topRated}/>
-            <h2 style={{fontSize: '34px', color: "black"}}>Upcoming movies</h2>
-            <SmallSlider list={upcomingList}/>
-            <h2 style={{fontSize: '34px', color: "black"}}>Upcoming movies</h2>
-            <SmallSlider list={topRated}/>
+        <Layout>
+            <MainStyled>
+                <MainSlider items={popularFilms}/>
+                <Container>
+                    <h2 style={{fontSize: '34px', color: "black"}}>Top Rated</h2>
+                    <SmallSlider items={topRated}/>
+                </Container>
+                <Container>
+                    <h2 style={{fontSize: '34px', color: "black"}}>Popular films</h2>
+                    <SmallSlider items={popularFilms}/>
+                </Container>
+                <Container>
+                    <h2 style={{fontSize: '34px', color: "black"}}>Upcoming movies</h2>
+                    <SmallSlider items={upcomingList}/>
+                </Container>
+            </MainStyled>
+        </Layout>
 
-
-
-                <div className='recommendation-film'>
-
-                </div>
-                <div className='now-playing'>
-
-                </div>
-
-        </MainStyled>
     )
 }

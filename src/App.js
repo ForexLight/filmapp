@@ -1,27 +1,26 @@
 import React, {Component} from "react";
 import {BrowserRouter as Router, Routes, Route  } from "react-router-dom";
-import Header from "../Header/Header";
-import Home from "../Home/Home";
-import Main from "../Main/Main";
-import FilmData from "../FilmData/FilmData";
-import Footer from "../Footer/Footer";
+import Header from "./components/Header/Header";
+import Home from "./components/Home/Home";
+import Main from "./components/Main/Main";
+import FilmData from "./components/FilmData/FilmData";
+import Footer from "./components/Footer/Footer";
 
 
 function App(props) {
 
     return(
         <>
-           <Router>
-               <Header />
-               <Routes>
-                   <Route exact path="/" element={<Main />} />
-                   <Route path="/film" element={<Home />} />
-                   <Route element={<FilmData />}>
-                       <Route exact path="/film/:id"/>
-                   </Route>
-               </Routes>
-               <Footer />
-           </Router>
+            <Router>
+                <Header />
+
+                <Routes>
+                    <Route exact path="/" element={<Main />} />
+                    <Route path="/film" element={<Home />} />
+                    <Route path="/film/:id" element={<FilmData />} />
+                </Routes>
+            </Router>
+            <Footer />
         </>
     )
 }

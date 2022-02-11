@@ -1,37 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import YoutubeEmbed from "../../YoutubeEmbed/YoutubeEmbed";
+import Youtube from "../../shared/Youtube";
 
 const TrailerWraper = styled.div`
-  margin: 20px 10px;
-  width: 72%;
-  background-color: #ffffff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  .trailer-title {
-    width: 100%;
-    background-color: red;
-    h2 {
-      align-self: flex-start;
-      padding-left: 5%;
-      font-size: 26px;
-      font-weight: 800;
-    }
-  }
-  
-
-  .video-responsive {
-    padding-top: 20px;
-    width: 100%;
-    height: 600px;
-  }
-
-  .video-responsive iframe {
-    width: 100%;
-    height: 100%;
-  }
+  width: 100%;
 `
 
 export default function FilmTrailer({video = {}}) {
@@ -43,7 +15,7 @@ export default function FilmTrailer({video = {}}) {
             <h2>TRAILER</h2>
         </div>
 
-        <YoutubeEmbed embedId={key}/>
+        <Youtube video={key} />
     </TrailerWraper>
     )
 }
