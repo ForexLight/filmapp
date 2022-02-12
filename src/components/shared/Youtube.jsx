@@ -3,6 +3,11 @@ import styled from "styled-components";
 
 const FrameContainer = styled.div`
   background-color: red;
+  height: 100%;
+  iframe {
+    width: 100%;
+    height: 100%;
+  }
 `
 
 const Youtube = ({video = ''}) => {

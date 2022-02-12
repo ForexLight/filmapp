@@ -38,6 +38,7 @@ const FilmHeaderStyled = styled.div`
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+
         .film-title {
           font-size: 36px;
           font-weight: bold;
@@ -49,17 +50,17 @@ const FilmHeaderStyled = styled.div`
           width: 400px;
           display: flex;
           justify-content: space-between;
+
           button {
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
-            background-color: rgba(0, 0, 0, 0.15);
+            background-color: rgba(0, 0, 0, 0.3);
             color: white;
             font-size: 24px;
           }
           .red {
             background-color: red;
-            
           }
         }
       }
@@ -82,7 +83,6 @@ const FilmHeader = ({data}) => (
                     <div>
                         <Link to='/'>back</Link>
                     </div>
-
                 </div>
                 <div className="bg-bottom">
                     <h2 className='film-title'>{data.title}</h2>
