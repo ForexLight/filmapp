@@ -31,10 +31,7 @@ const SmallSlider = ({items = []}) => {
     }
 
     const sliderItems = items.map(i => (
-        <Link to={{
-            pathname: `/film/${i.id}`,
-            state: { films: i }
-        }}>
+        <Link to={`/film/${i.id}`}>
             <Slide key={i.id}>
                 <div className='slideWrapper'>
                     <img src={`https://image.tmdb.org/t/p/original/${i.poster_path}`} alt="poster" />
@@ -47,7 +44,7 @@ const SmallSlider = ({items = []}) => {
     return (
         <SliderContainer>
             <Slider {...settings}>
-                {sliderItems}
+                {(sliderItems.length === 0) ? <div key={1}>...Loading</div> : sliderItems}
             </Slider>
 
         </SliderContainer>

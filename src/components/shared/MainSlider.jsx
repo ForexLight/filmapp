@@ -42,7 +42,7 @@ const SlideItem = styled.div`
   }
 `
 
-const MainSlider = ({items}) => {
+const MainSlider = ({items = []}) => {
     const settings = {
         dots: true,
         infinite: true,
@@ -72,7 +72,7 @@ const MainSlider = ({items}) => {
     return(
         <SliderContainer>
             <Slider {...settings}>
-                {sliderItems}
+                {(sliderItems.length === 0) ? <div>...Loading</div> : sliderItems}
             </Slider>
         </SliderContainer>
     )
