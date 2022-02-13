@@ -3,6 +3,10 @@ import styled from "styled-components";
 
 import SearchResults from "./SearchResults/SearchResults";
 
+const StyledInput = styled.input`
+  margin-left: 100px;  
+  width: 300px;
+`
 
 
 
@@ -19,10 +23,9 @@ function Search(){
                 .then(res => res.json()).then(res => setSearchRes(res.results.slice(0, 10)))
         },[searchQuery])
      function onSearch(e){
-
             setSearchQuery(e.target.value)
-
     }
+
     function onClose(){
         setSearchQuery('')
         setSearchRes([])
@@ -32,7 +35,7 @@ function Search(){
 
     return(
         <>
-            <input type="text" onChange={onSearch} value={searchQuery}/>
+            <StyledInput type="text" onChange={onSearch} value={searchQuery}/>
             <SearchResults results={searchRes} onClose={onClose}/>
         </>
     )

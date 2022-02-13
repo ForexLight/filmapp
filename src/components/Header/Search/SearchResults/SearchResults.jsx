@@ -4,15 +4,19 @@ import { Link} from "react-router-dom";
 
 const SearchResultsStyled = styled.div`
     position: absolute;
-
+  right: 80px;
     width: 300px;
-    height: 100px;
+    max-height:100vh;
+    overflow: auto;
     background-color: red;
   .close {
-    display: flex;
-    justify-content: flex-end;
-    padding-right: 10px;
-    
+    position: sticky;
+    top: 10px;
+    button {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
   }
   
 `
@@ -55,9 +59,11 @@ export default function SearchResults({results, onClose}) {
             top: '5%', width: '300px', height: '100px',
             right: '5%'}}>
             <SearchResultsStyled>
-                <button className='close' onClick={onClose}>
-                X
-                </button>
+                <div className='close'>
+                    <button  onClick={onClose}>
+                        X
+                    </button>
+                </div>
                 {res}
             </SearchResultsStyled>
         </div>
