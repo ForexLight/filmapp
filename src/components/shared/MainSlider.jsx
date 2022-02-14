@@ -48,15 +48,16 @@ const MainSlider = ({items = []}) => {
         infinite: true,
         speed: 500,
         slidesToShow: 1,
-        slidesToScroll: 1
+        slidesToScroll: 1,
+        lazyLoad: true
     }
 
-    const sliderItems = items.map(i => (
+    const sliderItems = items.sort((a, b) => b.vote_average - a.vote_average).map(i => (
         <Link to={`film/${i.id}`}>
             <SlideItem key={i.id}>
-                <div className='wrapper' style={{backgroundImage: `url(https://image.tmdb.org/t/p/original/${i.backdrop_path})`}}>
+                <div className='wrapper' style={{backgroundImage: `url(https://image.tmdb.org/t/p/w780/${i.backdrop_path})`}}>
                     <div className='slide-title'>
-                        <img className='film-poster' src={"https://image.tmdb.org/t/p/original/" + i.poster_path} alt="" />
+                        <img className='film-poster' src={"https://image.tmdb.org/t/p/w500/" + i.poster_path} alt="" />
                         <h2 className='title'>{i.title}</h2>
                         <div className='vote'>
                             <h2 className='slider-rating'>{i.vote_average}</h2>

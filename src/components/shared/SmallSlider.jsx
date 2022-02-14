@@ -27,24 +27,31 @@ const SmallSlider = ({items = []}) => {
         speed: 500,
         slidesToShow: 5,
         slidesToScroll: 5,
-        lazyLoad: true,
+        lazyLoad: true
     }
 
-    const sliderItems = items.map(i => (
-        <Link to={`/film/${i.id}`}>
-            <Slide key={i.id}>
-                <div className='slideWrapper'>
-                    <img src={`https://image.tmdb.org/t/p/original/${i.poster_path}`} alt="poster" />
-                    <span>{i.title}</span>
-                </div>
-            </Slide>
-        </Link>
-    ))
+    const sliderItems = items.map(i => {
+        if(items.length === 0) {
+            return (
+                <div>...loading</div>
+            )
+        }
+        return (
+            <Link to={`/film/${i.id}`}>
+                <Slide key={i.id}>
+                    <div className='slideWrapper'>
+                        <img src={`https://image.tmdb.org/t/p/w500/${i.poster_path}`} alt="poster" />
+                        <span>{i.title}</span>
+                    </div>
+                </Slide>
+            </Link>
+        )
+    })
 
     return (
         <SliderContainer>
             <Slider {...settings}>
-                {(sliderItems.length === 0) ? <div key={1}>...Loading</div> : sliderItems}
+                {sliderItems}
             </Slider>
 
         </SliderContainer>
