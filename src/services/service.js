@@ -10,7 +10,16 @@ export default class Service {
         upcoming = upcoming.data.results
         return [popularFilms, topRated , upcoming]
     }
-    static getFilmPage(id) {
+    static async getFilmPage(id) {
 
+        let data = await api.get(id).then(res => res.data)
+
+        let credits = await api.get(`${id}/credits`).then(res =>  {
+            return {cast: [...res.data.cast], crew: [...res.data.crew]}
+        })
+
+        let video = await api.get(`${id}/videos`).then(res => res.data.results.filter(i => i.type === 'Trailer'))
+
+        return [data, credits, video]
     }
 }

@@ -74,7 +74,7 @@ const FilmHeaderStyled = styled.div`
 const FilmHeader = ({data}) => (
     <FilmHeaderStyled>
         <div className='wrapper'
-             style={{ backgroundImage: `url('https://image.tmdb.org/t/p/original/${data.backdrop_path}')`}}>
+             style={{ backgroundImage: `url('https://image.tmdb.org/t/p/w1280/${data.backdrop_path}')`}}>
             <div className='info-container'>
                 <div className="bg-top">
                     <div>

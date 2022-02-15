@@ -52,7 +52,7 @@ const MainSlider = ({items = []}) => {
         lazyLoad: true
     }
 
-    const sliderItems = items.sort((a, b) => b.vote_average - a.vote_average).map(i => (
+    const sliderItems = items.sort((a, b) => b.vote_average - a.vote_average).slice(0, 7).map(i => (
         <Link to={`film/${i.id}`}>
             <SlideItem key={i.id}>
                 <div className='wrapper' style={{backgroundImage: `url(https://image.tmdb.org/t/p/w780/${i.backdrop_path})`}}>
@@ -73,7 +73,7 @@ const MainSlider = ({items = []}) => {
     return(
         <SliderContainer>
             <Slider {...settings}>
-                {(sliderItems.length === 0) ? <div>...Loading</div> : sliderItems}
+                { sliderItems}
             </Slider>
         </SliderContainer>
     )

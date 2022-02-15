@@ -9,6 +9,8 @@ export async function useFetchMain() {
     return [popularFilms, topRated , upcoming]
 }
 
-export function useFetchFilm(id) {
-
+export async function useFetchFilm(id) {
+    let responses = await Service.getFilmPage(id)
+    console.log(responses)
+    return responses
 }

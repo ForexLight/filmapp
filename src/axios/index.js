@@ -6,7 +6,7 @@ const api = axios.create({
 
 
 api.interceptors.request.use(config =>{
-    config.url = config.url + '?api_key='+ '4f6180974989b4115cfd59034eb82ace' + '&language=en-US&page=1'
+    config.url = config.url + '?api_key=' + '4f6180974989b4115cfd59034eb82ace' + '&language=en-US'
     return config
 })
 

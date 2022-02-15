@@ -1,19 +1,20 @@
-import React, {Component} from "react";
+import React from "react";
 import {BrowserRouter as Router, Routes, Route  } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 import Main from "./components/Main/Main";
 import FilmData from "./components/FilmData/FilmData";
 import Footer from "./components/Footer/Footer";
+import ScrollToTop from "./components/shared/ScrollToTop";
 
 
-function App(props) {
+function App() {
 
     return(
         <>
             <Router>
                 <Header />
-
+                <ScrollToTop />
                 <Routes>
                     <Route exact path="/" element={<Main />} />
                     <Route path="/film" element={<Home />} />

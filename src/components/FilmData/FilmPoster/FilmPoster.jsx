@@ -27,24 +27,25 @@ const PosterWrapper = styled.div`
 `
 
 
-export default function FilmPoster({data, cast=[], crew=[]}){
+export default function FilmPoster({data, credits }){
+
 
     let {genres = [], production_companies = []} = data
-    let casts = cast.slice(0,7).map( i => <span key={i.id}>{i.name} </span>)
-    genres = genres.map(i => <span key={i.id}>{i.name} </span>)
-    crew = crew.filter(i => i.department === "Production"||i.department === "Writing"||i.department === "Directing")
-    let directed = crew
+    let casts = credits.cast.slice(0,7).map( i => <span key={i.id}>{i.name} </span>)
+    genres = genres.map(i => <span key={i.name}>{i.name} </span>)
+    let crews = credits.crew.filter(i => i.department === "Production"||i.department === "Writing"||i.department === "Directing")
+    let directed = crews
         .sort((a, b) => b.popularity - a.popularity)
-        .filter(i => i.department === "Directing").map(i => <span key={i.id}>{i.name}, </span>)
-    let produced = crew
+        .filter(i => i.department === "Directing").map(i => <span key={i.name}>{i.name}, </span>)
+    let produced = crews
         .sort((a, b) => b.popularity - a.popularity)
         .filter(i => i.department === "Production").map(i => <span key={i.id}>{i.name}, </span>)
     let companies = production_companies.map(i =>
-        <img alt='company-img' key={i.id} style={{width: '200px', height:'50px'}} src={"https://image.tmdb.org/t/p/original/"+i.logo_path} alt=""/>
+        <img alt='company-img' key={i.id} style={{width: '200px', height:'50px'}} src={"https://image.tmdb.org/t/p/original/"+i.logo_path} />
     )
     return(
             <PosterWrapper>
-                <img src={"https://image.tmdb.org/t/p/original/"+ data.poster_path} alt="" className='poster'/>
+                <img loading="lazy" src={"https://image.tmdb.org/t/p/original/"+ data.poster_path} alt="" className='poster'/>
                 <div className='description'>
                     <h2 className='poster-title'>{data.title}</h2>
                     <div className='subtitle'>
