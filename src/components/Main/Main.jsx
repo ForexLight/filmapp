@@ -8,9 +8,10 @@ import {useFetchMain} from "../../hooks/hooks";
 import Service from "../../services/service";
 import log from "tailwindcss/lib/util/log";
 import Loading from "../shared/Loading";
+import BgContainer from "../shared/BgContainer";
 
 
-const MainStyled = styled.main`
+const MainStyled = styled.div`
 `
 
 export default function Main(){
@@ -28,24 +29,27 @@ export default function Main(){
     }, [])
 
     return(
-            <Layout>
+            <MainStyled>
                 {isLoading ? <Loading /> :
-                    <MainStyled>
-                <MainSlider items={res[0]}/>
-                <Container>
-                    <h2 style={{fontSize: '34px', color: "black"}}>Top Rated</h2>
-                    <SmallSlider items={res[0]}/>
-                </Container>
-                <Container>
-                    <h2 style={{fontSize: '34px', color: "black"}}>Popular films</h2>
-                    <SmallSlider items={res[0]}/>
-                </Container>
-                <Container>
-                    <h2 style={{fontSize: '34px', color: "black"}}>Upcoming movies</h2>
-                    <SmallSlider items={res[0]}/>
-                </Container>
-            </MainStyled>}
-        </Layout>
+                    <div>
+                        <BgContainer type='heaven'>
+                            <MainSlider items={res[0]}/>
+                        </BgContainer>
+                        <BgContainer type='earth'>
+                            <h2 style={{fontSize: '34px', color: "black"}}>Top Rated</h2>
+                            <SmallSlider items={res[0]}/>
+                        </BgContainer>
+                        <BgContainer type='earth'>
+                            <h2 style={{fontSize: '34px', color: "black"}}>Top Rated</h2>
+                            <SmallSlider items={res[0]}/>
+                        </BgContainer>
+                        <BgContainer type='hell'>
+                            <h2 style={{fontSize: '34px', color: "black"}}>Top Rated</h2>
+                            <SmallSlider items={res[0]}/>
+                        </BgContainer>
+                    </div>
+                }
+        </MainStyled>
     )
 
 

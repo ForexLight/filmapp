@@ -7,6 +7,7 @@ const SliderContainer = styled.div`
   .slick-arrow {
     background-color: red;
   }
+  background-color: black;
 `
 
 const SlideItem = styled.div`
